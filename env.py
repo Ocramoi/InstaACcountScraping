@@ -1,0 +1,3 @@
+NOME_ARQ_ENTRADA = "lista.txt"
+NOME_ARQ_SAIDA = "tabela.xlsx"
+PAUSA_REQUISICAO = 3
