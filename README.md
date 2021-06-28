@@ -3,7 +3,7 @@ Retorna tabela excel com número de posts, seguidores e seguidos de lista de usu
 
 ## Setup
 * Para que o projeto seja executado corretamente, garante a instalação e configuração do `Python 3.8.x` e `pip` (como [nesse tutorial](https://python.org.br/instalacao-windows/)).
-* Clone o diretório ou baixe os arquivos pelo [link](https://github.com/Ocramoi/InstaAccountScraping/releases/download/v0.1/release_0_1.zip).
+* Clone o diretório ou baixe os arquivos pelo [link](https://github.com/Ocramoi/InstaAccountScraping/releases/download/1.0/release_1_0.zip).
 * Acesse o diretório clonado ou descompacte o arquivo baixado.
 
 ## Configuração
