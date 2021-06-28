@@ -59,6 +59,15 @@ def main():
     for usr in listaUsrs:
         # Gera link do perfil
         linkUsr = linkBase.format(usr)
+
+        # Declara informações a serem lidas
+        infos = {
+            "Perfil": "DESATIVADO",
+            "Posts": "DESATIVADO",
+            "Seguidores": "DESATIVADO",
+            "Seguindo": "DESATIVADO"
+        }
+
         try:
             # Abre link do perfil
             browser.get(linkUsr)
@@ -74,19 +83,17 @@ def main():
             pagina = browser.page_source
 
             # Lê informações da página
-            infos = {
-                "Perfil": usr,
-                "Posts": regexPosts.search(pagina).groups(0)[0],
-                "Seguidores": regexSeguidores.search(pagina).groups(0)[0],
-                "Seguindo": regexSeguindo.search(pagina).groups(0)[0]
-            }
-
-            # Adiciona informação à tabela
-            df = df.append(infos,
-                           ignore_index=True)
+            infos["Perfil"] = usr
+            infos["Posts"] = regexPosts.search(pagina).groups(0)[0]
+            infos["Seguidores"] = regexSeguidores.search(pagina).groups(0)[0]
+            infos["Seguindo"] = regexSeguindo.search(pagina).groups(0)[0]
         except Exception:
             # Exibe usuários com erro de leitura
             print("Erro no usuário @{}!".format(usr))
+
+        # Adiciona informação à tabela
+        df = df.append(infos,
+                       ignore_index=True)
 
         # Pausa para evitar bloqueio por spam
         time.sleep(env.PAUSA_REQUISICAO)
